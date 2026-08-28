@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>History — MindScope</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/static/css/history.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="page-loader" id="pageLoader">
+
+    <div class="loader-inner">
+
+        <div class="loader-mark">
+            M
+        </div>
+
+        <div class="loader-text">
+            MindScope
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SIDEBAR
+     ===================================================== -->
+
+<aside class="sidebar">
+
+    <a href="/" class="brand">
+
+        <span class="brand-mark">
+            M
+        </span>
+
+        <span>
+            MindScope
+        </span>
+
+    </a>
+
+
+    <nav class="sidebar-nav">
+
+        <a
+            href="/dashboard"
+            class="nav-item"
+        >
+            <span>◉</span>
+            Overview
+        </a>
+
+
+        <a
+            href="/insights"
+            class="nav-item"
+        >
+            <span>◌</span>
+            Insights
+        </a>
+
+
+        <a
+            href="/recommendations"
+            class="nav-item"
+        >
+            <span>✦</span>
+            Recommendations
+        </a>
+
+
+        <a
+            href="/history"
+            class="nav-item active"
+        >
+            <span>↗</span>
+            History
+        </a>
+
+
+        <div class="nav-divider"></div>
+
+
+        <a
+            href="/resources"
+            class="nav-item"
+        >
+            <span>＋</span>
+            Resources
+        </a>
+
+
+        <a
+            href="/about"
+            class="nav-item"
+        >
+            <span>i</span>
+            About
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a
+            href="/assessment"
+            class="new-assessment"
+        >
+
+            <span>
+                +
+            </span>
+
+            New assessment
+
+        </a>
+
+        <button
+            type="button"
+            id="logoutButton"
+            class="logout-button"
+        >
+            Log out
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
+
+<main class="history-page">
+
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+        <div>
+
+            <span class="page-label">
+                YOUR JOURNEY
+            </span>
+
+            <h1>
+                Assessment history
+            </h1>
+
+            <p>
+                Look back at your previous assessment
+                results and see how your scores change
+                over time.
+            </p>
+
+        </div>
+
+
+        <a
+            href="/dashboard"
+            class="back-link"
+        >
+            ← Dashboard
+        </a>
+
+    </header>
+
+
+
+    <!-- =================================================
+         CURRENT SCORE
+         ================================================= -->
+
+    <section class="current-card">
+
+        <div class="current-content">
+
+            <span class="card-label">
+                MOST RECENT
+            </span>
+
+            <h2>
+                Your latest
+                <em>wellness check.</em>
+            </h2>
+
+            <p id="currentDate">
+                No recent assessment.
+            </p>
+
+        </div>
+
+
+        <div class="current-score">
+
+            <strong id="currentScore">
+                --
+            </strong>
+
+            <span>
+                / 10
+            </span>
+
+        </div>
+
+
+        <a
+            href="/assessment"
+            class="assessment-button"
+        >
+            Take new assessment
+            <span>→</span>
+        </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         HISTORY HEADER
+         ================================================= -->
+
+    <section class="history-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    01 / PREVIOUS CHECK-INS
+                </span>
+
+                <h2>
+                    Your assessment timeline
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="clear-button"
+                id="clearHistory"
+            >
+                Clear history
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             EMPTY STATE
+             ================================================= -->
+
+        <div
+            class="empty-state"
+            id="emptyState"
+        >
+
+            <div class="empty-icon">
+                ↗
+            </div>
+
+            <h3>
+                No assessments yet
+            </h3>
+
+            <p>
+                Complete your first assessment to start
+                building your wellness history.
+            </p>
+
+            <a
+                href="/assessment"
+                class="empty-button"
+            >
+                Start assessment →
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             HISTORY LIST
+             ================================================= -->
+
+        <div
+            id="historyContainer"
+            class="history-container"
+        >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         TREND
+         ================================================= -->
+
+    <section
+        class="trend-section"
+        id="trendSection"
+    >
+
+        <div class="trend-heading">
+
+            <span class="section-label">
+                02 / SCORE TREND
+            </span>
+
+            <h2>
+                Your score over time
+            </h2>
+
+            <p>
+                Your previous assessment scores are shown
+                in chronological order.
+            </p>
+
+        </div>
+
+
+        <div class="chart-card">
+
+            <div
+                class="chart"
+                id="scoreChart"
+            >
+
+                <!-- Chart generated by JavaScript -->
+
+            </div>
+
+
+            <div
+                class="chart-labels"
+                id="chartLabels"
+            >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         NOTE
+         ================================================= -->
+
+    <section class="history-note">
+
+        <div class="note-icon">
+            i
+        </div>
+
+        <div>
+
+            <strong>
+                Your privacy
+            </strong>
+
+            <p>
+                Assessment history is loaded from your
+                MindScope account. Only your signed-in
+                session can view your saved assessments.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="/static/js/main.js"></script>
+<script src="/static/js/history.js"></script>
+<script src="/static/js/logout.js"></script>
+
+</body>
+
+</html>

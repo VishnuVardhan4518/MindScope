@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - MindScope</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+
+<body>
+
+<div class="page-loader" id="pageLoader">
+
+    <div class="loader-inner">
+
+        <div class="loader-mark">
+            M
+        </div>
+
+        <div class="loader-text">
+            MindScope
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     SIDEBAR
+     ===================================================== -->
+
+<aside class="sidebar">
+
+    <a href="/" class="brand">
+        <span class="brand-mark">M</span>
+        <span>MindScope</span>
+    </a>
+
+    <nav class="sidebar-nav">
+
+        <a href="/dashboard" class="nav-item active">
+            <span>O</span>
+            Overview
+        </a>
+
+        <a href="/insights" class="nav-item">
+            <span>I</span>
+            Insights
+        </a>
+
+        <a href="/recommendations" class="nav-item">
+            <span>R</span>
+            Recommendations
+        </a>
+
+        <a href="/history" class="nav-item">
+            <span>H</span>
+            History
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a href="/resources" class="nav-item">
+            <span>+</span>
+            Resources
+        </a>
+
+        <a href="/about" class="nav-item">
+            <span>i</span>
+            About
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <a href="/assessment" class="new-assessment">
+            <span>+</span>
+            New assessment
+        </a>
+
+        <button
+            type="button"
+            id="logoutButton"
+            class="logout-button"
+        >
+            Log out
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
+
+<main class="dashboard dashboard-content">
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+        <div>
+            <span class="page-label">YOUR WELLNESS</span>
+
+            <h1>Overview</h1>
+        </div>
+
+        <div class="topbar-date">
+            <span class="assessment-date-display">&mdash;</span>
+        </div>
+
+    </header>
+
+
+    <!-- =================================================
+         WELCOME
+         ================================================= -->
+
+    <section class="welcome-card">
+
+        <div>
+
+            <span class="welcome-label">
+                ASSESSMENT COMPLETE
+            </span>
+
+            <h2>
+                Here's your current
+                <em>wellness snapshot.</em>
+            </h2>
+
+            <p>
+                Your result is based on the information you shared
+                about your academic habits, digital behavior,
+                lifestyle, sleep, and stress.
+            </p>
+
+        </div>
+
+        <a href="/assessment" class="outline-button">
+            Retake assessment
+            <span>></span>
+        </a>
+
+    </section>
+
+
+    <!-- =================================================
+         WELLNESS SCORE
+         ================================================= -->
+
+    <section class="wellness-score-card">
+
+        <div class="score-card-header">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    YOUR WELLNESS
+                </span>
+
+                <h2>
+                    Current wellness score
+                </h2>
+
+                <p>
+                    Based on your latest assessment
+                </p>
+
+            </div>
+
+            <span
+                id="assessment-date"
+                class="assessment-date assessment-date-display"
+            >
+                &mdash;
+            </span>
+
+        </div>
+
+        <div class="score-card-body">
+
+            <div
+                class="score-ring"
+                role="img"
+                aria-label="Wellness score"
+            >
+
+                <div class="score-ring-inner">
+
+                    <span id="score-value">
+                        &mdash;
+                    </span>
+
+                    <span class="score-out-of">
+                        / 10
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="score-summary">
+
+                <span
+                    id="score-status"
+                    class="score-status"
+                >
+                    &mdash;
+                </span>
+
+                <p id="score-message">
+                    Loading your wellness information...
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         PROFILE
+         ============================================================ -->
+
+    <section class="dashboard-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    PROFILE
+                </span>
+
+                <h2>
+                    About you
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="metrics-grid metrics-grid-3">
+
+            <article class="metric-card">
+                <div class="metric-icon">A</div>
+                <div class="metric-content">
+                    <span class="metric-label">Age</span>
+                    <strong id="age" class="metric-value">&mdash;</strong>
+                </div>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-icon">G</div>
+                <div class="metric-content">
+                    <span class="metric-label">Gender</span>
+                    <strong id="gender" class="metric-value">&mdash;</strong>
+                </div>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-icon">C</div>
+                <div class="metric-content">
+                    <span class="metric-label">Country</span>
+                    <strong id="country" class="metric-value">&mdash;</strong>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         ACADEMIC & DIGITAL HABITS
+         ============================================================ -->
+
+    <section class="dashboard-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    DIGITAL LIFE
+                </span>
+
+                <h2>
+                    Academic & digital habits
+                </h2>
+
+                <p>
+                    Your reported technology and study patterns.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="metrics-grid metrics-grid-3">
+
+            <article class="metric-card">
+                <div class="metric-icon">L</div>
+                <div class="metric-content">
+                    <span class="metric-label">Academic level</span>
+                    <strong id="academic-level" class="metric-value metric-value-text">&mdash;</strong>
+                </div>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-icon">#</div>
+                <div class="metric-content">
+                    <span class="metric-label">Most used platform</span>
+                    <strong id="platform" class="metric-value metric-value-text">&mdash;</strong>
+                </div>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-icon">P</div>
+                <div class="metric-content">
+                    <span class="metric-label">Main purpose</span>
+                    <strong id="purpose" class="metric-value metric-value-text">&mdash;</strong>
+                </div>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-icon">H</div>
+                <div class="metric-content">
+                    <span class="metric-label">Screen time</span>
+                    <strong id="screen-time" class="metric-value">&mdash;</strong>
+                    <span class="metric-unit">hours / day</span>
+                </div>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-icon">U</div>
+                <div class="metric-content">
+                    <span class="metric-label">Phone unlocks</span>
+                    <strong id="daily-unlocks" class="metric-value">&mdash;</strong>
+                    <span class="metric-unit">times / day</span>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         LIFESTYLE
+         ============================================================ -->
+
+    <section class="dashboard-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    LIFESTYLE
+                </span>
+
+                <h2>
+                    Daily wellbeing
+                </h2>
+
+                <p>
+                    Your sleep, study, activity and stress patterns.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="metrics-grid metrics-grid-4">
+
+            <article class="metric-card">
+                <div class="metric-icon">Z</div>
+                <div class="metric-content">
+                    <span class="metric-label">Sleep</span>
+                    <strong id="sleep-hours" class="metric-value">&mdash;</strong>
+                    <span class="metric-unit">hours / night</span>
+                </div>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-icon">S</div>
+                <div class="metric-content">
+                    <span class="metric-label">Study</span>
+                    <strong id="study-hours" class="metric-value">&mdash;</strong>
+                    <span class="metric-unit">hours / day</span>
+                </div>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-icon">+</div>
+                <div class="metric-content">
+                    <span class="metric-label">Physical activity</span>
+                    <strong id="physical-activity" class="metric-value">&mdash;</strong>
+                    <span class="metric-unit">hours / day</span>
+                </div>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-icon">!</div>
+                <div class="metric-content">
+                    <span class="metric-label">Stress level</span>
+                    <strong id="stress-level" class="metric-value metric-value-text">&mdash;</strong>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+    <!-- =================================================
+         QUICK INSIGHT
+         ================================================= -->
+
+    <section class="insight-preview">
+
+        <div class="preview-heading">
+
+            <div>
+
+                <span class="card-label">
+                    A QUICK LOOK
+                </span>
+
+                <h2>
+                    What stands out
+                </h2>
+
+            </div>
+
+            <a href="/insights" class="view-link">
+                View full insights >
+            </a>
+
+        </div>
+
+
+        <div class="insight-grid">
+
+            <article class="insight-card">
+
+                <span class="insight-number">
+                    01
+                </span>
+
+                <div class="insight-icon">
+                    Z
+                </div>
+
+                <h3>Sleep pattern</h3>
+
+                <p id="sleepInsight">
+                    Reviewing your sleep pattern.
+                </p>
+
+            </article>
+
+
+            <article class="insight-card">
+
+                <span class="insight-number">
+                    02
+                </span>
+
+                <div class="insight-icon">
+                    H
+                </div>
+
+                <h3>Digital habits</h3>
+
+                <p id="digitalInsight">
+                    Reviewing your digital habits.
+                </p>
+
+            </article>
+
+
+            <article class="insight-card">
+
+                <span class="insight-number">
+                    03
+                </span>
+
+                <div class="insight-icon">
+                    S
+                </div>
+
+                <h3>Stress</h3>
+
+                <p id="stressInsight">
+                    Reviewing your stress level.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         FOOTER NOTE
+         ================================================= -->
+
+    <section class="dashboard-note">
+
+        <span>i</span>
+
+        <p>
+            This score is an ML-based estimate from the information
+            provided during your assessment. It is not a medical
+            diagnosis.
+        </p>
+
+    </section>
+
+</main>
+
+
+<script src="/static/js/main.js"></script>
+<script src="/static/js/dashboard.js"></script>
+<script src="/static/js/logout.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recommendations - MindScope</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/recommendations.css">
+</head>
+
+<body>
+
+<div class="page-loader" id="pageLoader">
+
+    <div class="loader-inner">
+
+        <div class="loader-mark">
+            M
+        </div>
+
+        <div class="loader-text">
+            MindScope
+        </div>
+
+    </div>
+
+</div>
+
+<aside class="sidebar">
+
+    <a href="/" class="brand">
+        <span class="brand-mark">M</span>
+        <span>MindScope</span>
+    </a>
+
+    <nav class="sidebar-nav">
+
+        <a href="/dashboard" class="nav-item">
+            <span>o</span>
+            Overview
+        </a>
+
+        <a href="/insights" class="nav-item">
+            <span>o</span>
+            Insights
+        </a>
+
+        <a href="/recommendations" class="nav-item active">
+            <span>*</span>
+            Recommendations
+        </a>
+
+        <a href="/history" class="nav-item">
+            <span>^</span>
+            History
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a href="/resources" class="nav-item">
+            <span>+</span>
+            Resources
+        </a>
+
+        <a href="/about" class="nav-item">
+            <span>i</span>
+            About
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <a href="/assessment" class="new-assessment">
+            <span>+</span>
+            New assessment
+        </a>
+
+        <button
+            type="button"
+            id="logoutButton"
+            class="logout-button"
+        >
+            Log out
+        </button>
+
+    </div>
+
+</aside>
+
+<main class="recommendations-page">
+
+    <header class="topbar">
+
+        <div>
+
+            <span class="page-label">
+                PERSONALIZED GUIDANCE
+            </span>
+
+            <h1>Recommendations</h1>
+
+            <p>
+                Small, practical changes based on the habits
+                you reported in your assessment.
+            </p>
+
+        </div>
+
+        <a href="/dashboard" class="back-link">
+            &larr; Dashboard
+        </a>
+
+    </header>
+
+    <div
+        id="recommendationsContainer"
+        class="recommendations-container"
+    ></div>
+
+</main>
+
+<script src="/static/js/main.js"></script>
+<script src="/static/js/recommendations.js"></script>
+<script src="/static/js/logout.js"></script>
+
+</body>
+</html>

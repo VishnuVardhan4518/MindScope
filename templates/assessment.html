@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assessment — MindScope</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/assessment.css">
+</head>
+
+<body>
+
+<div class="page-loader" id="pageLoader">
+
+    <div class="loader-inner">
+
+        <div class="loader-mark">
+            M
+        </div>
+
+        <div class="loader-text">
+            MindScope
+        </div>
+
+    </div>
+
+</div>
+
+<header class="assessment-nav">
+
+    <a href="/" class="brand">
+        <span class="brand-mark">M</span>
+        <span>MindScope</span>
+    </a>
+
+    <div class="progress-wrapper">
+
+        <span id="progressText">Step 1 of 3</span>
+
+        <div class="progress-track">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+    </div>
+
+    <div class="assessment-actions">
+
+        <a href="/" class="exit-link">Exit</a>
+
+        <button
+            type="button"
+            id="logoutButton"
+            class="logout-button"
+        >
+            Log out
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="assessment-page">
+
+    <div class="assessment-container">
+
+        <!-- INTRO -->
+
+        <div class="assessment-intro">
+
+            <span class="section-label">STUDENT WELLNESS ASSESSMENT</span>
+
+            <h1>
+                Take a moment to
+                <em>check in.</em>
+            </h1>
+
+            <p>
+                Answer a few questions about your daily routine,
+                academic habits, digital behavior, sleep, activity,
+                and stress.
+            </p>
+
+        </div>
+
+
+        <!-- STEPPER -->
+
+        <div class="stepper">
+
+            <div class="step active" data-step="1">
+                <span>01</span>
+                <p>Profile</p>
+            </div>
+
+            <div class="step-line"></div>
+
+            <div class="step" data-step="2">
+                <span>02</span>
+                <p>Habits</p>
+            </div>
+
+            <div class="step-line"></div>
+
+            <div class="step" data-step="3">
+                <span>03</span>
+                <p>Lifestyle</p>
+            </div>
+
+        </div>
+
+
+        <form id="assessmentForm">
+
+            <!-- ==================================================
+                 STEP 1 — PROFILE
+                 ================================================== -->
+
+            <section class="form-step active" data-step="1">
+
+                <div class="step-heading">
+
+                    <span>01 / PROFILE</span>
+
+                    <h2>Tell us a little about yourself.</h2>
+
+                    <p>
+                        This helps provide context for your assessment.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="age">
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            name="age"
+                            min="10"
+                            max="100"
+                            placeholder="e.g. 21"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="gender">
+                            Gender
+                        </label>
+
+                        <select id="gender" name="gender" required>
+
+                            <option value="">
+                                Select gender
+                            </option>
+
+                            <option value="Male">
+                                Male
+                            </option>
+
+                            <option value="Female">
+                                Female
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="country">
+                            Country
+                        </label>
+
+                        <input
+                            type="text"
+                            id="country"
+                            name="country"
+                            placeholder="e.g. India"
+                            required
+                        >
+
+                        <small>
+                            Enter your country as it is commonly written.
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="academic_level">
+                            Academic level
+                        </label>
+
+                        <select
+                            id="academic_level"
+                            name="academic_level"
+                            required
+                        >
+
+                            <option value="">
+                                Select academic level
+                            </option>
+
+                            <option value="High School">
+                                High School
+                            </option>
+
+                            <option value="Undergraduate">
+                                Undergraduate
+                            </option>
+
+                            <option value="Graduate">
+                                Graduate
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step-actions">
+
+                    <span></span>
+
+                    <button
+                        type="button"
+                        class="next-button"
+                        data-next="2"
+                    >
+                        Continue
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 STEP 2 — ACADEMIC & DIGITAL HABITS
+                 ================================================== -->
+
+            <section class="form-step" data-step="2">
+
+                <div class="step-heading">
+
+                    <span>02 / HABITS</span>
+
+                    <h2>How do your academic and digital habits look?</h2>
+
+                    <p>
+                        Think about your typical day rather than an
+                        unusually busy or relaxed day.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="most_used_platform">
+                            Most used platform
+                        </label>
+
+                        <select
+                            id="most_used_platform"
+                            name="most_used_platform"
+                            required
+                        >
+
+                            <option value="">
+                                Select platform
+                            </option>
+
+                            <option value="Facebook">Facebook</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Snapchat">Snapchat</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="TikTok">TikTok</option>
+                            <option value="LINE">LINE</option>
+                            <option value="KakaoTalk">KakaoTalk</option>
+                            <option value="VKontakte">VKontakte</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                            <option value="WeChat">WeChat</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="purpose_of_use">
+                            Main purpose of use
+                        </label>
+
+                        <select
+                            id="purpose_of_use"
+                            name="purpose_of_use"
+                            required
+                        >
+
+                            <option value="">
+                                Select purpose
+                            </option>
+
+                            <option value="Networking">
+                                Networking
+                            </option>
+
+                            <option value="Education">
+                                Education
+                            </option>
+
+                            <option value="Entertainment">
+                                Entertainment
+                            </option>
+
+                            <option value="News">
+                                News
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="avg_daily_usage_hours">
+                            Average daily social media use
+                        </label>
+
+                        <div class="input-with-unit">
+
+                            <input
+                                type="number"
+                                id="avg_daily_usage_hours"
+                                name="avg_daily_usage_hours"
+                                min="0"
+                                max="24"
+                                step="0.1"
+                                placeholder="e.g. 4.5"
+                                required
+                            >
+
+                            <span>hours</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="daily_unlocks">
+                            Daily phone unlocks
+                        </label>
+
+                        <input
+                            type="number"
+                            id="daily_unlocks"
+                            name="daily_unlocks"
+                            min="0"
+                            placeholder="e.g. 120"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="study_hours">
+                            Study hours per day
+                        </label>
+
+                        <div class="input-with-unit">
+
+                            <input
+                                type="number"
+                                id="study_hours"
+                                name="study_hours"
+                                min="0"
+                                max="24"
+                                step="0.1"
+                                placeholder="e.g. 4.5"
+                                required
+                            >
+
+                            <span>hours</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step-actions">
+
+                    <button
+                        type="button"
+                        class="back-button"
+                        data-back="1"
+                    >
+                        ← Back
+                    </button>
+
+                    <button
+                        type="button"
+                        class="next-button"
+                        data-next="3"
+                    >
+                        Continue
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 STEP 3 — LIFESTYLE & STRESS
+                 ================================================== -->
+
+            <section class="form-step" data-step="3">
+
+                <div class="step-heading">
+
+                    <span>03 / LIFESTYLE</span>
+
+                    <h2>Let's look at your daily wellbeing habits.</h2>
+
+                    <p>
+                        These final questions help complete your
+                        assessment.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="physical_activity_hours">
+                            Physical activity per day
+                        </label>
+
+                        <div class="input-with-unit">
+
+                            <input
+                                type="number"
+                                id="physical_activity_hours"
+                                name="physical_activity_hours"
+                                min="0"
+                                max="24"
+                                step="0.1"
+                                placeholder="e.g. 1.5"
+                                required
+                            >
+
+                            <span>hours</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="sleep_hours_per_night">
+                            Sleep per night
+                        </label>
+
+                        <div class="input-with-unit">
+
+                            <input
+                                type="number"
+                                id="sleep_hours_per_night"
+                                name="sleep_hours_per_night"
+                                min="0"
+                                max="24"
+                                step="0.1"
+                                placeholder="e.g. 7.5"
+                                required
+                            >
+
+                            <span>hours</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Current stress level
+                        </label>
+
+                        <div class="stress-options">
+
+                            <label class="stress-option">
+
+                                <input
+                                    type="radio"
+                                    name="stress_level"
+                                    value="Low"
+                                    required
+                                >
+
+                                <span class="stress-card">
+                                    <strong>Low</strong>
+                                    <small>I feel mostly relaxed.</small>
+                                </span>
+
+                            </label>
+
+
+                            <label class="stress-option">
+
+                                <input
+                                    type="radio"
+                                    name="stress_level"
+                                    value="Medium"
+                                >
+
+                                <span class="stress-card">
+                                    <strong>Medium</strong>
+                                    <small>I experience some pressure.</small>
+                                </span>
+
+                            </label>
+
+
+                            <label class="stress-option">
+
+                                <input
+                                    type="radio"
+                                    name="stress_level"
+                                    value="High"
+                                >
+
+                                <span class="stress-card">
+                                    <strong>High</strong>
+                                    <small>I often feel under pressure.</small>
+                                </span>
+
+                            </label>
+
+
+                            <label class="stress-option">
+
+                                <input
+                                    type="radio"
+                                    name="stress_level"
+                                    value="Very High"
+                                >
+
+                                <span class="stress-card">
+                                    <strong>Very High</strong>
+                                    <small>I feel highly stressed.</small>
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="disclaimer">
+
+                    <span class="disclaimer-icon">i</span>
+
+                    <p>
+                        This assessment provides an estimated wellness
+                        score based on the information you provide.
+                        It is not a medical diagnosis.
+                    </p>
+
+                </div>
+
+
+                <div class="step-actions">
+
+                    <button
+                        type="button"
+                        class="back-button"
+                        data-back="2"
+                    >
+                        ← Back
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                    >
+                        Get my results
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+        </form>
+
+
+        <!-- ==================================================
+             LOADING
+             ================================================== -->
+
+        <div class="loading-state" id="loadingState">
+
+            <div class="loader"></div>
+
+            <h2>Understanding your responses...</h2>
+
+            <p>
+                Your assessment is being processed.
+            </p>
+
+        </div>
+
+
+        <!-- ==================================================
+             ERROR
+             ================================================== -->
+
+        <div class="error-state" id="errorState">
+
+            <div class="error-icon">!</div>
+
+            <h2>Something went wrong.</h2>
+
+            <p id="errorMessage">
+                We couldn't process your assessment.
+            </p>
+
+            <button
+                type="button"
+                class="back-button"
+                id="retryButton"
+            >
+                Try again
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="/static/js/main.js"></script>
+<script src="/static/js/assessment.js"></script>
+<script src="/static/js/logout.js"></script>
+
+</body>
+</html>
